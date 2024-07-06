@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generated Content and Analysis</title>
+</head>
+<body>
+    <h1>Generated Content</h1>
+    <p>{{ content }}</p>
+
+    <h2>Content Analysis</h2>
+    <h3>Sentiment:</h3>
+    <p>Positive: {{ analysis.sentiment.pos }}, Negative: {{ analysis.sentiment.neg }}, Neutral: {{ analysis.sentiment.neu }}</p>
+
+    <h3>Top Topics:</h3>
+    <ul>
+    {% for topic, count in analysis.top_topics %}
+        <li>{{ topic }}: {{ count }}</li>
+    {% endfor %}
+    </ul>
+
+    <h3>Readability Score:</h3>
+    <p>{{ analysis.readability }}</p>
+
+    <a href="/">Generate New Content</a>
+</body>
+</html>
