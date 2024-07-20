@@ -7,6 +7,19 @@ from nltk.corpus import stopwords
 from collections import Counter
 import nltk
 import textstat
+from google.cloud import secretmanager
+
+
+def access_secret_version(secret_id, version_id="latest"):
+    client = secretmanager.SecretManagerServiceClient()
+    name = f"projects/{os.environ['GOOGLE_CLOUD_PROJECT']}/secrets/{secret_id}/versions/{version_id}"
+    response = client.access_secret_version(request={"name": name})
+    return response.payload.data.decode("UTF-8")
+
+# Use this to get your API key
+api_key = access_secret_version("gemini-api-key")
+genai.configure(api_key=api_key)
+
 
 # Download necessary NLTK data
 nltk.download('vader_lexicon')
@@ -16,7 +29,7 @@ nltk.download('stopwords')
 app = Flask(__name__)
 
 # Configure Gemini API
-genai.configure(api_key="")
+genai.configure(api_key="api_key")
 model = genai.GenerativeModel('gemini-pro')
 
 def generate_content(prompt):
