@@ -1,4 +1,4 @@
-# ProjectSaadhnaS2
+# AI-Assisted Content Generation and Analysis
 
 Here's a guide on how to adapt and deploy your AI-Assisted Content Generation and Analysis Tool on Google Cloud:
 
