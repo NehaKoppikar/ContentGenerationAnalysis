@@ -16,7 +16,7 @@ nltk.download('stopwords')
 app = Flask(__name__)
 
 # Configure Gemini API
-genai.configure(api_key="AIzaSyDweJzYoYXd7lG70lj0sYPmXzWaJmC7PRc")
+genai.configure(api_key="")
 model = genai.GenerativeModel('gemini-pro')
 
 def generate_content(prompt):
