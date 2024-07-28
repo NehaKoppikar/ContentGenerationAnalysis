@@ -27,8 +27,7 @@ app = Flask(__name__)
 #aiplatform.init(project=os.environ['GOOGLE_CLOUD_PROJECT'], location='us-central1')
 
 def generate_content(prompt):
-    # Get the Gemini model
-    #model = aiplatform.GenerativeModel("gemini-1.0-pro")
+
 
     # Load Gemini 1.5 Pro Model
     MODEL_ID = "gemini-1.5-pro-001"
