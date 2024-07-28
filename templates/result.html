@@ -1,26 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Generated Content and Analysis</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Content</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 800px;
+            width: 90%;
+            text-align: center;
+            margin: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .content, .analysis {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .analysis h3 {
+            margin-top: 10px;
+            color: #444;
+        }
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Generated Content</h1>
-    <p>{{ content }}</p>
-
-    <h2>Content Analysis</h2>
-    <h3>Sentiment:</h3>
-    <p>Positive: {{ analysis.sentiment.pos }}, Negative: {{ analysis.sentiment.neg }}, Neutral: {{ analysis.sentiment.neu }}</p>
-
-    <h3>Top Topics:</h3>
-    <ul>
-    {% for topic, count in analysis.top_topics %}
-        <li>{{ topic }}: {{ count }}</li>
-    {% endfor %}
-    </ul>
-
-    <h3>Readability Score:</h3>
-    <p>{{ analysis.readability }}</p>
-
-    <a href="/">Generate New Content</a>
+    <div class="container">
+        <h1>Generated Content</h1>
+        <div class="content">
+            <p>{{ content }}</p>
+        </div>
+        <h2>Analysis</h2>
+        <div class="analysis">
+            <h3>Sentiment</h3>
+            <p>Positive: {{ analysis.sentiment.pos }}</p>
+            <p>Neutral: {{ analysis.sentiment.neu }}</p>
+            <p>Negative: {{ analysis.sentiment.neg }}</p>
+            <p>Compound: {{ analysis.sentiment.compound }}</p>
+            
+            <h3>Top Topics</h3>
+            <ul>
+                {% for topic in analysis.top_topics %}
+                <li>{{ topic[0] }}: {{ topic[1] }}</li>
+                {% endfor %}
+            </ul>
+            
+            <h3>Readability</h3>
+            <p>{{ analysis.readability }}</p>
+        </div>
+        <a href="/">Go Back</a>
+    </div>
 </body>
 </html>
