@@ -23,9 +23,6 @@ nltk.download('stopwords')
 
 app = Flask(__name__)
 
-# Initialize Vertex AI
-#aiplatform.init(project=os.environ['GOOGLE_CLOUD_PROJECT'], location='us-central1')
-
 def generate_content(prompt):
 
 
