@@ -1,5 +1,8 @@
 # AI-Assisted Content Generation and Analysis
 
+### Video Demo Link:
+https://www.loom.com/share/6a788b901aa044eda30d1853385c97f6?sid=448dec17-76b5-45ca-9b9c-ce50be8b6f8a
+
 Here's a guide on how to build this project on Google Cloud:
 
 1. Create a new Google Cloud project
